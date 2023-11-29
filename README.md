@@ -1,22 +1,26 @@
 # glowparachute_BE
 Skeleton model for real estate multifamily assets
 
-Open Anaconda Prompt
+## Setup
 
-**Check conda version:** <br>
-conda --version
+### Open Anaconda Prompt
+>If you do not have: https://www.anaconda.com/download
 
-**If out of date:**<br>
-conda update conda
+### Check conda version
+`conda --version`
 
-Proceed ([y]/n)? y
+>If out of date:
 
-**Create new conda environment:**<br>
-conda create --name django_env
+`conda update conda`
 
-**Enter the environment:**<br>
-conda activate django_env
+`Proceed ([y]/n)? y`
 
-**Install Django and dependencies:**<br>
-pip3 install django
-pip3 install djangorestframework django-cors-headers
+### Create new conda environment:
+`conda create --name django_env`
+
+###  Enter the environment:
+`conda activate django_env`
+
+### Install Django and dependencies:
+`pip3 install django`
+`pip3 install djangorestframework django-cors-headers`
