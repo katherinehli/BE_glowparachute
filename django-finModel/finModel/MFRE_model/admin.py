@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import MFRE_model
 
 class MFRE_modelAdmin(admin.ModelAdmin):
-    list_display = ('buildingName', 'dealName', 'locationDescription')
+    list_display = ('buildingName', 'dealName', 'locationDescription', 'numApartmentUnits')
 
 # Register your models here.
 
