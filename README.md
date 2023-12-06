@@ -1,4 +1,4 @@
-# glowparachute_BE
+# BE_glowparachute
 Skeleton model for real estate multifamily assets
 
 ## Setup
