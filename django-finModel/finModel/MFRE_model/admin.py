@@ -6,4 +6,5 @@ class MFRE_modelAdmin(admin.ModelAdmin):
 
 # Register your models here.
 
+
 admin.site.register(MFRE_model, MFRE_modelAdmin)

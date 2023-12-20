@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Tranche(models.Model):
+class Tranche(models.Field):
     placeholderString = "hello"
     loanToValue = models.FloatField(default=0.0)
 
@@ -10,7 +10,9 @@ class Tranche(models.Model):
         return self.placeholderString
 
     def deconstruct(self):
-        return 'django-finModel.MFRE_model.models.Tranche', [], {}
+        return 'django-finModel.MFRE_model.models.Tranche', [], {
+
+        }
 
     def __eq__(self, other):
         return self.loanToValue == other.loanToValue
