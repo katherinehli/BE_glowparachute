@@ -12,9 +12,11 @@ class MFREView(viewsets.ModelViewSet):
     queryset = MFRE_model.objects.all()
 
     def retrieve(self, request, *args, **kwargs):
+        print("request")
         modelInstance = self.get_object()
         calculated_data = self.perform_calculations(modelInstance)
         serializer = self.get_serializer(calculated_data)
+        print(serializer.errors)
         return Response(serializer.data)
 
     def perform_calculations(self, modelInstance):

@@ -4,15 +4,22 @@ from django.db import models
 
 class Tranche(models.Field):
     placeholderString = "hello"
-    loanToValue = models.FloatField(default=0.0)
+    # loanToValue = models.FloatField(default=0.0)
+
+    def db_type(self, connection):
+        return "tranche"
+
+    def __init__(self, loanToValue=0.0, *args, **kwargs):
+        self.loanToValue = loanToValue
+        super().__init__(*args, **kwargs)
 
     def _str_(self):
         return self.placeholderString
 
     def deconstruct(self):
-        return 'django-finModel.MFRE_model.models.Tranche', [], {
-
-        }
+        name, path, args, kwargs = super().deconstruct()
+        kwargs["loanToValue"] = self.loanToValue
+        return name, path, args, kwargs
 
     def __eq__(self, other):
         return self.loanToValue == other.loanToValue
@@ -35,9 +42,10 @@ class MFRE_model(models.Model):
     parkingSpotsPerUnit = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
 
     # tranches = models.ForeignKey(tranche, on_delete=models.CASCADE, default=None)
-    tranches = models.ForeignKey(Tranche, on_delete=models.CASCADE, null=True, blank=True)
+    # tranches = models.ForeignKey(Tranche, on_delete=models.CASCADE, null=True, blank=True)
 
     # Tranches here - ordered list of tranches. create class of tranches
+    tranche = Tranche(loanToValue=0.0, default=None)
 
     def __str__(self):
         return self.buildingName
